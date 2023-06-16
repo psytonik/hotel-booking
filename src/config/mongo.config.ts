@@ -11,9 +11,7 @@ export const getMongoConfig = async (
 };
 
 const getMongoString = (configService: ConfigService): string =>
-  `mongodb+srv://${configService.get('MONGO_LOGIN')}:${configService.get(
-    'MONGO_PASSWORD',
-  )}@${configService.get('MONGO_HOST')}`;
+  configService.get<string>('MONGO_DB_URL');
 
 const getMongoOptions = () => ({
   useNewUrlParser: true,
