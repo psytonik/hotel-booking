@@ -7,5 +7,6 @@ export default registerAs('jwt', () => {
     audience: configService.get<string>('JWT_TOKEN_AUDIENCE'),
     issuer: configService.get<string>('JWT_TOKEN_ISSUER'),
     accessTokenTTL: configService.get<number>('JWT_ACCESS_TOKEN_TTL') ?? 3600,
+    refreshTokenTTL: configService.get<number>('JWT_REFRESH_TOKEN') ?? 360000,
   };
 });

@@ -3,8 +3,9 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { getMongoConfig } from './config/mongo.config';
 import { UsersModule } from './users/users.module';
-import { RoomsModule } from './rooms/rooms.module';
 import { IamModule } from './iam/iam.module';
+import { HotelsModule } from './hotels/hotels.module';
+import { RoomsModule } from './rooms/rooms.module';
 
 @Module({
   imports: [
@@ -17,8 +18,9 @@ import { IamModule } from './iam/iam.module';
       useFactory: getMongoConfig,
     }),
     UsersModule,
-    RoomsModule,
     IamModule,
+    HotelsModule,
+    RoomsModule,
   ],
 })
 export class AppModule {}
