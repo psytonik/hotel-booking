@@ -13,6 +13,12 @@ export class Users {
 
   @Prop({ enum: Role, default: Role.Regular })
   role: Role;
+
+  @Prop({ default: false })
+  isTfaEnabled: boolean;
+
+  @Prop()
+  tfaSecret: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(Users);

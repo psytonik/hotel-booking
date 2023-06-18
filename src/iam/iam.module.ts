@@ -13,6 +13,7 @@ import { AuthenticationGuard } from './authentication/guards/authentication.guar
 import { AccessTokenGuard } from './authentication/guards/access-token.guard';
 import { RefreshTokenIdsStorage } from './authentication/storage/refresh-token-ids.storage';
 import { RolesGuard } from './authorization/guards/roles.guard';
+import { OtpAuthenticationService } from './authentication/otp-authentication.service';
 
 @Module({
   imports: [
@@ -42,6 +43,7 @@ import { RolesGuard } from './authorization/guards/roles.guard';
     RefreshTokenIdsStorage,
     AccessTokenGuard,
     AuthenticationService,
+    OtpAuthenticationService,
   ],
   controllers: [AuthenticationController],
 })
