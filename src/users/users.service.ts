@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { UserDocument, Users } from './users.model';
 import { Model } from 'mongoose';
-import { Role } from './enums/roles.enum';
 
 @Injectable()
 export class UsersService {
@@ -10,9 +9,7 @@ export class UsersService {
     @InjectModel(Users.name) private readonly userModel: Model<UserDocument>,
   ) {}
   async updateRoles(): Promise<void> {
-    await this.userModel
-      .updateMany({}, { $set: { role: Role.Regular } })
-      .exec();
+    return;
   }
   async findAll() {
     return `This service return all users`;

@@ -1,12 +1,11 @@
-import { ConfigService, registerAs } from '@nestjs/config';
+import { registerAs } from '@nestjs/config';
 
 export default registerAs('jwt', () => {
-  const configService = new ConfigService();
   return {
-    secret: configService.get<string>('JWT_SECRET'),
-    audience: configService.get<string>('JWT_TOKEN_AUDIENCE'),
-    issuer: configService.get<string>('JWT_TOKEN_ISSUER'),
-    accessTokenTTL: configService.get<number>('JWT_ACCESS_TOKEN_TTL') ?? 3600,
-    refreshTokenTTL: configService.get<number>('JWT_REFRESH_TOKEN') ?? 360000,
+    secret: process.env.JWT_SECRET,
+    audience: process.env.JWT_TOKEN_AUDIENCE,
+    issuer: process.env.JWT_TOKEN_ISSUER,
+    accessTokenTTL: parseInt(process.env.JWT_ACCESS_TOKEN_TTL ?? '3600', 10),
+    refreshTokenTTL: parseInt(process.env.JWT_REFRESH_TOKEN ?? '86400', 10),
   };
 });
